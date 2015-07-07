@@ -1,0 +1,8 @@
+.ns__container--small-screens {
+	display: none;
+}
+@media (max-width: 1022px) {
+	.ns__container--small-screens {
+		display: block;
+	}
+}

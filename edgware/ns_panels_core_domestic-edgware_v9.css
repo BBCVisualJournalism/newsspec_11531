@@ -1,0 +1,795 @@
+.ns-panel-edgware__sections .ns-carousel-edgware__item {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+.ns-panel-edgware__sections .ns-carousel-edgware__nav {
+  display: none;
+  height: 351px;
+  position: absolute;
+  top: 0px;
+  width: 624px; }
+
+.ns-panel-edgware--interactive .ns-carousel-edgware {
+  position: relative;
+  -webkit-padding-start: 0px;
+  -moz-padding-start: 0px;
+  -ms-padding-start: 0px; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__item {
+  left: -10000px;
+  position: absolute;
+  width: 100%; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__item--show {
+  left: 0;
+  position: relative;
+  top: 0; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__nav {
+  display: block;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity: 0;
+  filter: alpha(opacity=0); }
+.ns-panel-edgware--interactive .ns-carousel-edgware__nav--faded-in {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  opacity: 1;
+  filter: alpha(opacity=100); }
+.ns-panel-edgware--interactive .ns-carousel-edgware__next-prev {
+  -ms-filter: inherit;
+  filter: inherit;
+  background: #000;
+  height: 64px;
+  margin-top: -32px;
+  opacity: 0.8;
+  position: absolute;
+  top: 48%;
+  width: 64px; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__prev {
+  left: 0; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__arrow-left {
+  -ms-filter: inherit;
+  border: 20px solid transparent;
+  border-right: 30px solid #999;
+  display: block;
+  filter: inherit;
+  line-height: 0;
+  position: absolute;
+  right: 20px;
+  top: 13px; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__arrow-left--inside {
+  -ms-filter: inherit;
+  border: 11px solid transparent;
+  border-right: 15px solid #000;
+  display: block;
+  filter: inherit;
+  line-height: 0;
+  position: absolute;
+  right: 20px;
+  top: 22px; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__next {
+  right: 2px; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__arrow-right {
+  -ms-filter: inherit;
+  border: 20px solid transparent;
+  border-left: 30px solid #999;
+  display: block;
+  filter: inherit;
+  left: 20px;
+  line-height: 0;
+  position: absolute;
+  top: 13px; }
+.ns-panel-edgware--interactive .ns-carousel-edgware__arrow-right--inside {
+  -ms-filter: inherit;
+  border: 11px solid transparent;
+  border-left: 15px solid #000;
+  display: block;
+  filter: inherit;
+  left: 20px;
+  line-height: 0;
+  position: absolute;
+  top: 22px; }
+
+/*
+    Disable hotspot area by default.
+*/
+.ns-panel-edgware__hotspots {
+  clear: both;
+  display: none;
+  margin-bottom: 1em;
+  position: relative; }
+
+/*
+    Only show the hotspot area when JS is disabled if
+    panel is on desktop.
+    Only way to tell desktop is to check for "body.news"
+*/
+body.news #main-content .layout-block-a {
+  z-index: auto; }
+body.news .ns-panel-edgware__clickable {
+  display: block; }
+body.news .ns-panel-edgware__hotspots {
+  display: block; }
+
+#page {
+  z-index: auto; }
+
+.ns-panel-edgware__hotspot {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10; }
+
+/*
+    Hotspot area
+*/
+.ns-panel-edgware__caption-overlay {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  filter: alpha(opacity=60);
+  background: #000;
+  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+.ns-panel-edgware__caption-overlay p {
+  color: #fff;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px 8px;
+  line-height: 24px; }
+
+body.ns-responsive .ns-panel-edgware__caption-overlay p {
+  font-size: 16px; }
+
+.ns-panel-edgware__caption-overlay--left-of-icon {
+  left: 32px; }
+  .ns-panel-edgware__caption-overlay--left-of-icon p {
+    line-height: 24px; }
+
+/*
+    ICONS
+*/
+.ns-panel-edgware__hotspots--thumbnail {
+  /*
+    This class is to fix a bug in legacy IE.  A link hover area is not activated
+    unless the browser renders *something* into the space.  This hack renders
+    a background so opaque you can't see it, but it is enough to make the 
+    browser render the link hover area.  "Opacity: 0" hides this element from
+    all other browsers.
+    Remove this when IE8 is no longer supported (estimated to be 2015 by Tom Maslen)
+  */ }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__icon {
+    background-repeat: no-repeat;
+    display: block;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 32px;
+    z-index: -1; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__icon-img {
+    background-image: url(img/sprite_icon_img.png); }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__icon-video {
+    background-image: url(img/sprite_icon_video.png); }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__icon-text {
+    background-image: url(img/sprite_icon_text.png); }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__icon-audio {
+    background-image: url(img/sprite_icon_audio.png); }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover .ns-panel-edgware__caption-overlay,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus .ns-panel-edgware__caption-overlay {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=90);
+    background: #000000;
+    background: rgba(0, 0, 0, 0.9); }
+    .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover .ns-panel-edgware__caption-overlay p,
+    .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus .ns-panel-edgware__caption-overlay p {
+      text-decoration: underline; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover .ns-panel-edgware__icon-video,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus .ns-panel-edgware__icon-video {
+    background-position: -65px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover .ns-panel-edgware__icon-img,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus .ns-panel-edgware__icon-img {
+    background-color: black; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover .ns-panel-edgware__icon-text,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus .ns-panel-edgware__icon-text {
+    background-color: black; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover .ns-panel-edgware__icon-audio,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus .ns-panel-edgware__icon-audio {
+    background-color: black; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:active .ns-panel-edgware__caption-overlay {
+    text-decoration: underline;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    background: #D2700F;
+    background: rgba(210, 112, 15, 0.7); }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-video {
+    background-color: transparent;
+    background-position: -129px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-img {
+    background-color: transparent;
+    background-position: -130px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-text {
+    background-color: transparent;
+    background-position: -130px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-audio {
+    background-color: transparent;
+    background-position: -129px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:hover:before,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot:focus:before {
+    bottom: 0;
+    border: 2px solid #D2700F;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__caption-overlay,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__caption-overlay,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active .ns-panel-edgware__caption-overlay {
+    text-decoration: none;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    background: #D2700F;
+    background: rgba(210, 112, 15, 0.7); }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-video,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-video,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-video {
+    background-color: transparent;
+    background-position: -129px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-img,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-img,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-img {
+    background-color: transparent;
+    background-position: -130px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-text,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-text,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-text {
+    background-color: transparent;
+    background-position: -130px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-audio,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-audio,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-audio {
+    background-color: transparent;
+    background-position: -129px 0; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--active:before {
+    bottom: 0;
+    border: 2px solid #D2700F;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--no-hover-border:hover:before,
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--no-hover-border:focus:before {
+    display: none; }
+  .ns-panel-edgware__hotspots--thumbnail .ns-panel-edgware__hotspot--legacy-ie-rollover-fix {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+    filter: alpha(opacity=1);
+    background: white;
+    content: "";
+    position: relative;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+    zoom: 1; }
+
+body.news .ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot {
+  padding-left: 32px;
+  padding-right: 8px;
+  padding-top: 4px; }
+
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot {
+  padding-left: 1.8em;
+  padding-right: 0.5em;
+  width: auto;
+  color: #fff;
+  padding-top: 0.25em;
+  font-size: 0.9em; }
+  .ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot .ns-panel-edgware__caption-overlay {
+    min-height: 32px; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:hover .ns-panel-edgware__caption-overlay {
+  text-decoration: underline;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90);
+  background: black;
+  background: rgba(0, 0, 0, 0.9); }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:focus .ns-panel-edgware__caption-overlay {
+  text-decoration: underline;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+  filter: alpha(opacity=90);
+  background: black;
+  background: rgba(0, 0, 0, 0.9); }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__caption-overlay,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__caption-overlay,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active .ns-panel-edgware__caption-overlay,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:active .ns-panel-edgware__caption-overlay {
+  text-decoration: underline;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
+  background: #D2700F;
+  background: rgba(210, 112, 15, 0.7); }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-text,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-text,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-text,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-text {
+  background-position: -130px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-img,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-img,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-img,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-img {
+  background-position: -130px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-video,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-video,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-video,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-video {
+  background-position: -128px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:hover .ns-panel-edgware__icon-audio,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active:active .ns-panel-edgware__icon-audio,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot--active .ns-panel-edgware__icon-audio,
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot:active .ns-panel-edgware__icon-audio {
+  background-position: -128px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__icon {
+  background-repeat: no-repeat;
+  display: block;
+  height: 32px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 32px;
+  z-index: -1; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__icon-text {
+  background-image: url(img/sprite_icon_text.png);
+  background-position: -66px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__icon-img {
+  background-image: url(img/sprite_icon_img.png);
+  background-position: -66px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__icon-video {
+  background-image: url(img/sprite_icon_video.png);
+  background-position: -64px 0; }
+.ns-panel-edgware__hotspots--label .ns-panel-edgware__icon-audio {
+  background-image: url(img/sprite_icon_audio.png);
+  background-position: -64px 0; }
+
+/* 
+    PANELS
+*/
+.ns-panel-edgware__section {
+  overflow: hidden;
+  zoom: 1; }
+
+div.ns-panel-edgware__section-img {
+  position: absolute; }
+
+.ns-panel-edgware__section-close {
+  position: absolute;
+  left: -10000px; }
+
+.ns-panel-edgware__section-portrait-image-holder {
+  float: right;
+  margin-left: 3%;
+  width: 47%; }
+
+.ns-panel-edgware__section-nav {
+  display: none; }
+
+.ns-panel-edgware__section-text {
+  margin-top: 12px; }
+
+.ns-panel-edgware__section-header {
+  font-size: 1.3em; }
+
+.ns-panel-edgware__section-sub-header {
+  font-size: 1.1em;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em; }
+
+/*
+    PANEL WIDTHS
+    =============================================
+
+    class name      interactive width     panel width (video width)
+    dyn_full        976                   624 (640)
+    dyn_half_wide   624                   624 (640)
+    dyn_full_narrow 976                   464 (320)
+    dyn_half_narrow 624                   464 (320)
+    dyn_narrow      464                   464 (320)
+*/
+/*
+  Default panel width
+
+ .dyn_full -  624px + 8px*2 padding - 640px
+              With SPM 640px+ 7px*padding - 654px
+*/
+.dyn_full .ns-panel-edgware--interactive .ns-panel-edgware__section {
+  width: 640px; }
+.dyn_full .ns-panel-edgware--interactive .ns-panel-edgware__section--emp {
+  width: 654px; }
+
+/*
+  .dyn_full_narrow -  464px + 8px*2 padding - 480px
+                      With SPM 480px+ 7px*padding - 494px
+*/
+.dyn_full_narrow .ns-panel-edgware--interactive .ns-panel-edgware__section {
+  width: 480px; }
+.dyn_full_narrow .ns-panel-edgware--interactive .ns-panel-edgware__section--emp {
+  width: 494px; }
+
+/* 
+  Styles for Video Panel CTA when Clickable is in none interactive mode
+*/
+.ns-panel-edgware__section-emp {
+  position: relative; }
+
+.ns-panel-edgware__emp_player {
+  margin-left: auto;
+  margin-right: auto; }
+
+.ns-panel-edgware__video__cta {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: url(img/resp_vid_play.png);
+  background-repeat: no-repeat;
+  top: 0;
+  cursor: pointer;
+  background-position-y: 100%; }
+
+/* 976 */
+.dyn_full_narrow .story-body__inner {
+  margin-right: 0; }
+
+div.ns-panel-edgware__context-image {
+  position: absolute; }
+
+.ns-wide-include {
+  max-width: 976px; }
+  .ns-wide-include .ns-panel-edgware__context-image {
+    width: 976px;
+    max-width: 976px; }
+
+/* 624 */
+.storybody-halfwide-include {
+  max-width: 624px; }
+  .storybody-halfwide-include .ns-panel-edgware__context-image {
+    width: 624px;
+    max-width: 624px; }
+
+/* 464 */
+.ns-narrow-include {
+  max-width: 464px; }
+  .ns-narrow-include .ns-panel-edgware__context-image {
+    width: 464px;
+    max-width: 464px; }
+
+.idt-delayed-image-load {
+  width: 100%; }
+
+/*
+    List the panels as standard sections
+    TODO - Once we no longer need to support Desktop we can remove
+    the explicit <body> <ul> selectors
+*/
+body ul .ns-panel-edgware__section {
+  background: none;
+  list-style: none;
+  margin: 0 0 1em;
+  padding-left: 0; }
+
+body .ns-panel-edgware__section-header {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  margin-top: 0.25em; }
+
+/*
+    Interactive label
+*/
+.ns-panel-edgware__clickable {
+  background: #000;
+  color: #fff;
+  display: none;
+  float: left;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  padding: 4px;
+  text-transform: uppercase; }
+
+/*
+  The RN news code base has a selector .story-body img
+  Which trumps a pure class selector, for now we'll rack up points using
+  node selector but we should remove this if the oppurtunity presents itself
+*/
+img.ns-panel-edgware__section-emp-img--hide {
+  display: none; }
+
+/*
+    INTERACTIVE
+*/
+.ns-panel-edgware--interactive {
+  position: relative;
+  margin-top: 1em; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__hotspot {
+    z-index: 5; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section-emp {
+    position: relative; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__sections {
+    -webkit-tap-highlight-color: transparent;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    left: -10000px;
+    opacity: 0;
+    position: absolute; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section--show {
+    background: #ededed;
+    display: block;
+    left: 0;
+    margin: 0 auto;
+    opacity: 1;
+    padding: 0.5em;
+    position: relative;
+    z-index: 1015; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section--align-right {
+    margin: 0 0 0 auto; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section--show.ns-panel-edgware__section--centre_of_screen {
+    left: 50%;
+    position: fixed;
+    top: 50%; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section-close {
+    color: #aaa;
+    cursor: pointer;
+    font-size: 2em;
+    left: auto;
+    line-height: 0.5;
+    padding: 0.25em;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+    display: block;
+    width: 0.5em;
+    z-index: 1; }
+    .ns-panel-edgware--interactive .ns-panel-edgware__section-close:hover {
+      color: #000; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__section-nav {
+    display: block;
+    position: relative;
+    margin-top: 8px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__hide {
+    position: absolute;
+    left: -10000px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__prev {
+    cursor: pointer;
+    float: left;
+    position: relative;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+    width: 38px;
+    z-index: 10;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    background: #000;
+    background: rgba(0, 0, 0, 0.7); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__prev:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    background: #000;
+    background: rgba(0, 0, 0, 0.9); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__prev:hover .ns-panel-edgware__arrow-left--inside {
+      border-right: 8px solid rgba(0, 0, 0, 0.9); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__prev:active {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    background: #D2700F;
+    background: rgba(210, 112, 15, 0.7); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__prev:active .ns-panel-edgware__arrow-left--inside {
+      border-right: 8px solid #D2700F;
+      border-right: 8px solid rgba(210, 112, 15, 0.7); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__arrow-left {
+    border: 14px solid transparent;
+    border-right: 14px solid #fff;
+    display: block;
+    left: -4px;
+    line-height: 0;
+    position: absolute;
+    top: 4px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__arrow-left--inside {
+    border: 8px solid transparent;
+    border-right: 8px solid #2e2e2e;
+    border-right: 8px solid rgba(0, 0, 0, 0.7);
+    display: block;
+    right: 14px;
+    line-height: 0;
+    position: absolute;
+    top: 10px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__counter {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    margin-top: 8px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next {
+    cursor: pointer;
+    float: right;
+    height: 38px;
+    position: relative;
+    overflow: hidden;
+    width: 38px;
+    z-index: 10;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    background: #000;
+    background: rgba(0, 0, 0, 0.7); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=90);
+    background: #000;
+    background: rgba(0, 0, 0, 0.9); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next:hover .ns-panel-edgware__arrow-right--inside {
+      border-left: 8px solid #2e2e2e;
+      border-left: 8px solid rgba(0, 0, 0, 0.9); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next:active {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    background: #D2700F;
+    background: rgba(210, 112, 15, 0.7); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next:active .ns-panel-edgware__arrow-right--inside {
+      border-left: 8px solid #d2700f;
+      border-left: 8px solid rgba(210, 112, 15, 0.7); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__arrow-right {
+    border: 14px solid transparent;
+    border-left: 14px solid #fff;
+    display: block;
+    line-height: 0;
+    position: absolute;
+    right: -4px;
+    top: 4px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__arrow-right--inside {
+    border: 8px solid transparent;
+    border-left: 8px solid #2e2e2e;
+    border-left: 8px solid rgba(0, 0, 0, 0.7);
+    display: block;
+    left: 14px;
+    line-height: 0;
+    position: absolute;
+    top: 10px; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled {
+    cursor: default;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+    background: #000;
+    background: rgba(0, 0, 0, 0.3); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled .ns-panel-edgware__arrow-left--inside {
+      border-right: 8px solid #a5a5a5;
+      border-right: 8px solid rgba(0, 0, 0, 0.3); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled .ns-panel-edgware__arrow-right--inside {
+      border-left: 8px solid #a5a5a5;
+      border-left: 8px solid rgba(0, 0, 0, 0.3); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+    background: #000;
+    background: rgba(0, 0, 0, 0.3); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled:hover .ns-panel-edgware__arrow-left--inside {
+      border-right: 8px solid #a5a5a5;
+      border-right: 8px solid rgba(0, 0, 0, 0.3); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled:hover .ns-panel-edgware__arrow-right--inside {
+      border-left: 8px solid #a5a5a5;
+      border-left: 8px solid rgba(0, 0, 0, 0.3); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled:active {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    filter: alpha(opacity=30);
+    background: #000;
+    background: rgba(0, 0, 0, 0.3); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled:active .ns-panel-edgware__arrow-left--inside {
+      border-right: 8px solid #a5a5a5;
+      border-right: 8px solid rgba(0, 0, 0, 0.3); }
+    .ns-panel-edgware--interactive .ns-panel-edgware__next-prev--disabled:active .ns-panel-edgware__arrow-right--inside {
+      border-left: 8px solid #a5a5a5;
+      border-left: 8px solid rgba(0, 0, 0, 0.3); }
+  .ns-panel-edgware--interactive .ns-panel-edgware__prev:hover .ns-panel-edgware__arrow-left {
+    border-right-color: #fff; }
+  .ns-panel-edgware--interactive .ns-panel-edgware__next:hover .ns-panel-edgware__arrow-right {
+    border-left-color: #fff; }
+
+.ns-panel-edgware__mask {
+  bottom: 0;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000; }
+
+.ns-panel-edgware__mask--black {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  background: #000;
+  background: rgba(0, 0, 0, 0.3);
+  filter: alpha(opacity=30); }
+
+.ns-panel-edgware__mask--white {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
+  filter: alpha(opacity=80); }
+
+.ns-panel-edgware__mask--show {
+  display: block; }
+
+.column--single-column-layout .ns-panel-edgware--interactive {
+  margin: 2em auto; }
+
+.column--single-column-layout .ns-panel-edgware p {
+  margin: 0 auto;
+  padding-right: 8px;
+  width: 98%; }
+
+.column--single-column-layout .ns-panel-edgware__caption-overlay p {
+  width: auto;
+  padding-right: 12px; }
+
+/*
+  ANIMATION
+  =============================================
+  Experimental
+*/
+/*.ns-responsive {
+
+  .ns-panel-edgware--interactive {
+
+    .ns-panel-edgware__section {
+      -webkit-transition: -webkit-transform .2s ease-in-out, opacity 0.2s ease-in-out;
+         -moz-transition:    -moz-transform .2s ease-in-out, opacity 0.2s ease-in-out;
+          -ms-transition:     -ms-transform .2s ease-in-out, opacity 0.2s ease-in-out;
+           -o-transition:      -o-transform .2s ease-in-out, opacity 0.2s ease-in-out;
+              transition:         transform .2s ease-in-out, opacity 0.2s ease-in-out;
+      -webkit-transform: scale(0.2);
+         -moz-transform: scale(0.2);
+          -ms-transform: scale(0.2);
+           -o-transform: scale(0.2);
+      transform: scale(0.2);
+    }
+
+    .ns-panel-edgware__section--show {
+      -webkit-transform: scale(1);
+         -moz-transform: scale(1);
+          -ms-transform: scale(1);
+           -o-transform: scale(1);
+              transform: scale(1);
+    }
+
+  }
+
+}*/
+.orb-ie7 .ns-panel-edgware__hotspots--label .ns-panel-edgware__hotspot {
+  height: 28px; }
+.orb-ie7 .ns-panel-edgware__caption-overlay--left-of-icon {
+  width: 65%; }
+
+#csspHack {
+  position: relative;
+  z-index: 12345; }
+
+/*# sourceMappingURL=ns_panels_core_domestic.css.map */
